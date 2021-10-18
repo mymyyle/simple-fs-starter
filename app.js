@@ -13,7 +13,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", indexRouter);
+app.use("/api", indexRouter);
+
 app.use((req, res, next) => {
   const error = new Error("Path not found");
   error.statusCode = 404;
@@ -23,4 +24,5 @@ app.use((err, req, res, next) => {
   console.log("ERROR", err.message);
   return res.send(err.message);
 });
+
 module.exports = app;

@@ -4,7 +4,7 @@ const router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.render("index", { title: "Express" });
+  res.send("index");
 });
 
 const data = {};
@@ -13,14 +13,14 @@ const data = {};
 router.get("/students", function (req, res, next) {
   // const queries = req.query;
   // console.log(queries);
-  res.status(304).send({ data });
+  res.status(200).send({ data });
 });
 
 /* GET students. */
 router.get("/students/:id", function (req, res, next) {
   // const params = req.params;
   // console.log(params);
-  res.status(304).send({ data });
+  res.status(200).send({ data });
 });
 
 module.exports = router;
