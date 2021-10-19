@@ -1,26 +1,16 @@
 const express = require("express");
-
+const fs = require("fs");
 const router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-  res.send("index");
+  return res.status(200).send("/api");
 });
 
-const data = {};
+const studentRoutes = require("./student.api.js");
+router.use("/students", studentRoutes);
 
-/* GET students. */
-router.get("/students", function (req, res, next) {
-  // const queries = req.query;
-  // console.log(queries);
-  res.status(200).send({ data });
-});
-
-/* GET students. */
-router.get("/students/:id", function (req, res, next) {
-  // const params = req.params;
-  // console.log(params);
-  res.status(200).send({ data });
-});
+// const userRoutes = require("./user.api.js");
+// router.use("/users", userRoutes);
 
 module.exports = router;
