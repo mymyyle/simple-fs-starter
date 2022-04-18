@@ -1,0 +1,30 @@
+body{
+    background-color:  pink;
+}
+
+h1{
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container input{
+    margin-bottom: 0.5rem;
+    width: 40vw;
+}
+
+td{
+
+    border: 1px solid;
+    padding: 0.2rem;
+}
+
+.student-id:hover{
+    cursor: pointer;
+    color: green;
+
+}
