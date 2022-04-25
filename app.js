@@ -23,13 +23,16 @@ app.use("/", async (req, res) => {
 
 app.use((req, res, next) => {
   const error = new Error("Path not found");
-  error.statusCode = 404;
+  error.status = 404;
   next(error);
 });
 
-app.use((err, req, res, next) => {
-  console.log("ERROR", err.message);
-  return res.send(err.message);
+app.use((error, req, res, next) => {
+  console.log("ERROR", error.message);
+  if (!error.status) {
+    error.status = 500;
+  }
+  return res.status(error.status).send(error.message);
 });
 
 module.exports = app;
